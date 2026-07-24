@@ -1071,11 +1071,21 @@ section {
 
 @media (max-width: 520px) {
     .sectors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .sector-card {
+        padding: 20px 14px;
+    }
+}
+
+@media (max-width: 389px) {
+    .sectors-grid {
         grid-template-columns: 1fr;
         gap: 18px;
     }
     .sector-card {
-        padding: 26px 20px;
+        padding: 24px 18px;
     }
 }
 
@@ -1193,21 +1203,42 @@ section {
 
 @media (max-width: 520px) {
     .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .service-card {
+        padding: 20px 14px;
+    }
+    .service-icon {
+        width: 48px;
+        height: 48px;
+    }
+    .service-title {
+        font-size: 0.98rem;
+    }
+    .service-desc {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 389px) {
+    .services-grid {
         grid-template-columns: 1fr;
         gap: 18px;
     }
     .service-card {
-        padding: 26px 18px;
+        padding: 24px 18px;
     }
     .service-icon {
         width: 56px;
         height: 56px;
     }
     .service-title {
-        font-size: 1.1rem;
+        font-size: 1.08rem;
     }
     .service-desc {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
 }
 
@@ -2363,13 +2394,6 @@ section {
     color: var(--primary-blue-dark);
 }
 
-.project-body .btn {
-    margin-top: auto;
-    align-self: flex-start;
-    border-radius: 2px !important;
-    box-shadow: 0 6px 16px rgba(26, 101, 175, 0.25) !important;
-}
-
 /* Responsive sezione Progetti */
 @media (max-width: 1024px) {
     .projects-grid {
@@ -2395,10 +2419,6 @@ section {
     .project-desc {
         font-size: 0.85rem;
         line-height: 1.6;
-    }
-    .project-body .btn {
-        padding: 9px 20px !important;
-        font-size: 0.76rem !important;
     }
 }
 
@@ -2431,11 +2451,6 @@ section {
     }
     .project-date-day {
         font-size: 1.2rem;
-    }
-    .project-body .btn {
-        width: 100%;
-        padding: 9px 12px !important;
-        font-size: 0.72rem !important;
     }
 }
 
@@ -3015,11 +3030,6 @@ section {
 
     .project-date-day {
         font-size: 1rem;
-    }
-
-    .project-body .btn {
-        padding: 8px 10px !important;
-        font-size: 0.66rem !important;
     }
 
     .brand-item {
