@@ -2042,7 +2042,7 @@ section {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 389px) {
     .form-row {
         grid-template-columns: 1fr;
     }
@@ -2404,11 +2404,18 @@ section {
 
 @media (max-width: 520px) {
     .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 14px;
     }
     .project-title {
-        font-size: 1.3rem;
+        font-size: 1.02rem;
+    }
+    .project-desc {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    .project-image {
+        margin-bottom: 14px;
     }
     .project-cat {
         padding: 6px 10px;
@@ -2423,6 +2430,21 @@ section {
         right: 12px;
     }
     .project-date-day {
+        font-size: 1.2rem;
+    }
+    .project-body .btn {
+        width: 100%;
+        padding: 9px 12px !important;
+        font-size: 0.72rem !important;
+    }
+}
+
+@media (max-width: 389px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .project-title {
         font-size: 1.2rem;
     }
 }
