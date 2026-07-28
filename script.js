@@ -14,7 +14,6 @@
         initHeroParallax();
         initContactForm();
         initActiveNav();
-        initTeamCarousel();
     });
 
     /* -------- HEADER SCROLL EFFECT -------- */
@@ -317,156 +316,6 @@
         window.addEventListener('scroll', throttle(updateActive, 100));
     }
 
-    /* -------- TEAM CAROUSEL -------- */
-    function initTeamCarousel() {
-        const track = document.getElementById('teamTrack');
-        const slides = document.querySelectorAll('.team-slide');
-        const prevBtn = document.getElementById('teamPrev');
-        const nextBtn = document.getElementById('teamNext');
-        const dotsContainer = document.getElementById('teamDots');
-        const wrapper = document.querySelector('.team-carousel-wrapper');
-
-        if (!track || slides.length === 0 || !dotsContainer) return;
-
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-        let autoplayTimer = null;
-        const AUTOPLAY_INTERVAL = 5000;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let isDragging = false;
-
-        // Generazione dinamica dei pallini in base al numero di slide
-        function buildDots() {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'team-dot';
-                dot.type = 'button';
-                dot.setAttribute('aria-label', 'Vai al membro ' + (i + 1));
-                if (i === currentIndex) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-        }
-
-        // Aggiorna la trasformata e lo stato attivo dei pallini
-        function goToSlide(index) {
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
-            currentIndex = index;
-
-            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-
-            // Aggiorna pallini
-            const dots = dotsContainer.querySelectorAll('.team-dot');
-            dots.forEach((d, i) => {
-                d.classList.toggle('active', i === currentIndex);
-            });
-        }
-
-        function nextSlide() {
-            goToSlide(currentIndex + 1);
-        }
-
-        function prevSlide() {
-            goToSlide(currentIndex - 1);
-        }
-
-        // Event listeners per pulsanti
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                restartAutoplay();
-            });
-        }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                restartAutoplay();
-            });
-        }
-
-        // Autoplay
-        function startAutoplay() {
-            if (autoplayTimer) return;
-            autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
-        }
-
-        function stopAutoplay() {
-            if (autoplayTimer) {
-                clearInterval(autoplayTimer);
-                autoplayTimer = null;
-            }
-        }
-
-        function restartAutoplay() {
-            stopAutoplay();
-            startAutoplay();
-        }
-
-        // Pausa al passaggio del mouse sopra al carosello
-        if (wrapper) {
-            wrapper.addEventListener('mouseenter', stopAutoplay);
-            wrapper.addEventListener('mouseleave', startAutoplay);
-        }
-
-        // Pausa quando la scheda non è visibile
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                stopAutoplay();
-            } else {
-                startAutoplay();
-            }
-        });
-
-        // Supporto swipe touch / drag desktop leggero
-        const carousel = document.getElementById('teamCarousel');
-        if (carousel) {
-            carousel.addEventListener('touchstart', (e) => {
-                isDragging = true;
-                touchStartX = e.changedTouches[0].screenX;
-                touchEndX = touchStartX;
-                stopAutoplay();
-            }, { passive: true });
-
-            carousel.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                touchEndX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            carousel.addEventListener('touchend', () => {
-                if (!isDragging) return;
-                isDragging = false;
-                const delta = touchStartX - touchEndX;
-                const threshold = 50;
-
-                if (delta > threshold) {
-                    nextSlide();
-                } else if (delta < -threshold) {
-                    prevSlide();
-                }
-                startAutoplay();
-            });
-        }
-
-        // Tastiera: frecce sinistra/destra quando il carosello è in vista
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') {
-                nextSlide();
-                restartAutoplay();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-                restartAutoplay();
-            }
-        });
-
-        // Inizializzazione
-        buildDots();
-        goToSlide(0);
-        startAutoplay();
-    }
-
     /* =========================================
        UTILITY FUNCTIONS
        ========================================= */
@@ -508,11 +357,11 @@
             top: '120px',
             left: '50%',
             transform: 'translateX(-50%) translateY(-20px)',
-            backgroundColor: '#1A65AF',
+            backgroundColor: '#243256',
             color: '#fff',
             padding: '16px 28px',
             borderRadius: '8px',
-            boxShadow: '0 12px 30px rgba(26,101,175,0.4)',
+            boxShadow: '0 12px 30px rgba(36,50,86,0.4)',
             zIndex: '99999',
             fontSize: '0.95rem',
             fontWeight: '500',
