@@ -62,22 +62,31 @@
     <section id="home" class="hero">
         <div class="hero-slider" aria-hidden="true">
             <div class="hero-slide active" data-desktop="fotohero/BIZZOTTO.png" data-mobile="fotohero/BIZZOTTO%20mobile.png"></div>
+            <div class="hero-slide" data-desktop="fotohero/BILLIANI.png" data-mobile="fotohero/BILLIANI%20mobile.png"></div>
             <div class="hero-slide" data-desktop="fotohero/%20NODO%20ITALIA.png" data-mobile="fotohero/NODO%20ITALIA-mobile.png"></div>
             <div class="hero-slide" data-desktop="fotohero/INKIOSTRO%20BIANCO.png" data-mobile="fotohero/INKIOSTRO%20mobile.png"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-brand-wrap" aria-label="Brand correlato">
-            <div class="hero-brand active">
-                <img src="fotohero/bizzottologo.png" alt="Bizzotto" loading="eager">
-                <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
-            </div>
-            <div class="hero-brand">
-                <img src="fotohero/nodoitalialogo.png" alt="Nodo Italia" loading="eager">
-                <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
-            </div>
-            <div class="hero-brand">
-                <img src="fotohero/inchiostro.png" alt="Inkiostro Bianco" loading="eager">
-                <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
+            <div class="container">
+                <div class="hero-brand-inner">
+                    <div class="hero-brand active">
+                        <img src="fotohero/bizzottologo.png" alt="Bizzotto" loading="eager">
+                        <a href="#brands" class="btn btn-light hero-brand-btn">Scopri tutti i brand</a>
+                    </div>
+                    <div class="hero-brand">
+                        <img src="fotohero/billianilogo.png" alt="Billiani" loading="eager">
+                        <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
+                    </div>
+                    <div class="hero-brand">
+                        <img src="fotohero/nodoitalialogo.png" alt="Nodo Italia" loading="eager">
+                        <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
+                    </div>
+                    <div class="hero-brand">
+                        <img src="fotohero/inchiostro.png" alt="Inkiostro Bianco" loading="eager">
+                        <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Scroll Indicator -->
@@ -220,6 +229,77 @@
         </div>
     </section>
 
+    <!-- ========== BRAND SECTION ========== -->
+    <section id="brands" class="brands">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">
+                    I nostri Brand
+                    <span class="title-underline center"></span>
+                </h2>
+                <p class="section-subtitle">
+                    Una selezione dei migliori brand nazionali e internazionali del design
+                </p>
+            </div>
+            <div class="brands-groups">
+                <div class="brands-group reveal">
+                    <h3 class="brands-group-title">Arredamento Indoor · Contract</h3>
+                    <div class="brands-chips">
+                        <span class="brand-chip">Adrenalina</span>
+                        <span class="brand-chip">Billiani</span>
+                        <span class="brand-chip">Dexo</span>
+                        <span class="brand-chip">FAS Pendezza</span>
+                        <span class="brand-chip">Gaber</span>
+                        <span class="brand-chip">Inclass</span>
+                        <span class="brand-chip">Luxy</span>
+                        <span class="brand-chip">Made Design</span>
+                        <span class="brand-chip">Mobles 114</span>
+                        <span class="brand-chip">Flexilan</span>
+                        <span class="brand-chip">Planika</span>
+                    </div>
+                </div>
+
+                <div class="brands-group reveal">
+                    <h3 class="brands-group-title">Arredamento Outdoor · Contract</h3>
+                    <div class="brands-chips">
+                        <span class="brand-chip">Bizzotto</span>
+                        <span class="brand-chip">Teporia</span>
+                        <span class="brand-chip">Ombrellificio Veneto</span>
+                        <span class="brand-chip">Phormalab</span>
+                        <span class="brand-chip">Nodo Italia</span>
+                        <span class="brand-chip">Paolelli Outdoor</span>
+                        <span class="brand-chip">PiùESSE</span>
+                        <span class="brand-chip">Modularte</span>
+                        <span class="brand-chip">Urban Time</span>
+                        <span class="brand-chip">VSG</span>
+                    </div>
+                </div>
+
+                <div class="brands-group reveal">
+                    <h3 class="brands-group-title">Rivestimenti e Materiali</h3>
+                    <div class="brands-chips">
+                        <span class="brand-chip">Decoratori Bassanesi</span>
+                        <span class="brand-chip">Natucer</span>
+                        <span class="brand-chip">Oltremateria</span>
+                        <span class="brand-chip">Inkiostro Bianco</span>
+                        <span class="brand-chip">Verde Profilo</span>
+                        <span class="brand-chip">Felli</span>
+                        <span class="brand-chip">Giacobazzi</span>
+                        <span class="brand-chip">Isoldesign</span>
+                    </div>
+                </div>
+
+                <div class="brands-group reveal">
+                    <h3 class="brands-group-title">Bagno e Accessori</h3>
+                    <div class="brands-chips">
+                        <span class="brand-chip">IBB1974 Daimec</span>
+                        <span class="brand-chip">Inbani</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== SERVIZI SECTION ========== -->
     <section id="services" class="services">
         <div class="container">
@@ -336,7 +416,7 @@
                 <!-- Progetto 1 -->
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80" alt="Faro di Brucoli - Ho.Re.Ca. Progetti" loading="lazy">
+                        <img src="progetti/FaroDiBrucoli/FarodiBrucoli_3-1024x512.jpg" alt="Faro di Brucoli - Ho.Re.Ca. Progetti" loading="lazy">
                         <span class="project-cat">Ho.Re.Ca.<br><strong>Progetti</strong></span>
                         <span class="project-date">
                             <span class="project-date-month">Apr</span>
@@ -356,7 +436,7 @@
                 <!-- Progetto 2 -->
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Cortile Corselli - Sushi Restaurant" loading="lazy">
+                        <img src="progetti/CortileCorselli/cortilecorselli.jpg" alt="Cortile Corselli - Sushi Restaurant" loading="lazy">
                         <span class="project-cat">Ho.Re.Ca.<br><strong>Progetti</strong></span>
                         <span class="project-date">
                             <span class="project-date-month">Apr</span>
@@ -376,7 +456,7 @@
                 <!-- Progetto 3 -->
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Ampliare casa in giardino - Outdoor" loading="lazy">
+                        <img src="progetti/casagiardino/pergola-bioclimatica-gallery-1-1-1088x544.jpg" alt="Ampliare casa in giardino - Outdoor" loading="lazy">
                         <span class="project-cat">Outdoor</span>
                         <span class="project-date">
                             <span class="project-date-month">Mar</span>
@@ -396,7 +476,7 @@
                 <!-- Progetto 4 -->
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Longho e Talenti - Progetto Outdoor Evento" loading="lazy">
+                        <img src="progetti/progetto-outdoor/longho-1536x692.png" alt="Longho e Talenti - Progetto Outdoor Evento" loading="lazy">
                         <span class="project-cat">Outdoor</span>
                         <span class="project-date">
                             <span class="project-date-month">Mar</span>
@@ -413,45 +493,23 @@
                     </div>
                 </article>
 
-                <!-- Progetto 5 -->
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="Progetto Indoor - Showroom Palermo" loading="lazy">
-                        <span class="project-cat">Indoor<br><strong>Contract</strong></span>
-                        <span class="project-date">
-                            <span class="project-date-month">Feb</span>
-                            <span class="project-date-day">10</span>
-                            <span class="project-date-year">2021</span>
-                        </span>
-                        <a href="#" class="project-overlay-link" aria-label="Apri progetto"></a>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Showroom Palermo Centro</h3>
-                        <p class="project-desc">
-                            Allestimento di un nuovo spazio espositivo nel cuore di Palermo: oltre 600 mq dedicati al living, alla zona notte e agli arredi per la cucina. Una selezione dei migliori brand italiani per un totale di oltre 45 ambientazioni curate nel dettaglio.
-                        </p>
-                    </div>
-                </article>
+            </div>
+        </div>
+    </section>
 
-                <!-- Progetto 6 -->
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1519974719765-e6559eac2575?auto=format&fit=crop&w=900&q=80" alt="Hotel 5 stelle - Ho.Re.Ca. Malta" loading="lazy">
-                        <span class="project-cat">Ho.Re.Ca.<br><strong>Malta</strong></span>
-                        <span class="project-date">
-                            <span class="project-date-month">Gen</span>
-                            <span class="project-date-day">05</span>
-                            <span class="project-date-year">2021</span>
-                        </span>
-                        <a href="#" class="project-overlay-link" aria-label="Apri progetto"></a>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Boutique Hotel a St. Julian's</h3>
-                        <p class="project-desc">
-                            Fornitura completa per un boutique hotel 5 stelle a Malta: arredi per camere, common areas, rooftop pool e ristorante con vista sul Mediterraneo. Una partnership consolidata nel maltese che vede protagonista Iorbaldo 1934.
-                        </p>
-                    </div>
-                </article>
+    <!-- ========== CALL TO ACTION ========== -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2 class="cta-title">Realizziamo insieme il tuo prossimo progetto.</h2>
+                <a href="#contact" class="btn btn-light">
+                    Contattaci
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -513,94 +571,6 @@
         </div>
     </section>
 
-    <!-- ========== BRAND SECTION ========== -->
-    <section id="brands" class="brands">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">
-                    I nostri Brand
-                    <span class="title-underline center"></span>
-                </h2>
-                <p class="section-subtitle">
-                    Una selezione dei migliori brand nazionali e internazionali del design
-                </p>
-            </div>
-            <div class="brands-groups">
-                <div class="brands-group reveal">
-                    <h3 class="brands-group-title">Arredamento Indoor · Contract</h3>
-                    <div class="brands-chips">
-                        <span class="brand-chip">Adrenalina</span>
-                        <span class="brand-chip">Billiani</span>
-                        <span class="brand-chip">Dexo</span>
-                        <span class="brand-chip">FAS Pendezza</span>
-                        <span class="brand-chip">Gaber</span>
-                        <span class="brand-chip">Inclass</span>
-                        <span class="brand-chip">Luxy</span>
-                        <span class="brand-chip">Made Design</span>
-                        <span class="brand-chip">Mobles 114</span>
-                        <span class="brand-chip">Flexilan</span>
-                        <span class="brand-chip">Planika</span>
-                    </div>
-                </div>
-
-                <div class="brands-group reveal">
-                    <h3 class="brands-group-title">Arredamento Outdoor · Contract</h3>
-                    <div class="brands-chips">
-                        <span class="brand-chip">Bizzotto</span>
-                        <span class="brand-chip">Teporia</span>
-                        <span class="brand-chip">Ombrellificio Veneto</span>
-                        <span class="brand-chip">Phormalab</span>
-                        <span class="brand-chip">Nodo Italia</span>
-                        <span class="brand-chip">Paolelli Outdoor</span>
-                        <span class="brand-chip">PiùESSE</span>
-                        <span class="brand-chip">Modularte</span>
-                        <span class="brand-chip">Urban Time</span>
-                        <span class="brand-chip">VSG</span>
-                    </div>
-                </div>
-
-                <div class="brands-group reveal">
-                    <h3 class="brands-group-title">Rivestimenti e Materiali</h3>
-                    <div class="brands-chips">
-                        <span class="brand-chip">Decoratori Bassanesi</span>
-                        <span class="brand-chip">Natucer</span>
-                        <span class="brand-chip">Oltremateria</span>
-                        <span class="brand-chip">Inkiostro Bianco</span>
-                        <span class="brand-chip">Verde Profilo</span>
-                        <span class="brand-chip">Felli</span>
-                        <span class="brand-chip">Giacobazzi</span>
-                        <span class="brand-chip">Isoldesign</span>
-                    </div>
-                </div>
-
-                <div class="brands-group reveal">
-                    <h3 class="brands-group-title">Bagno e Accessori</h3>
-                    <div class="brands-chips">
-                        <span class="brand-chip">IBB1974 Daimec</span>
-                        <span class="brand-chip">Inbani</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CALL TO ACTION ========== -->
-    <section class="cta-section">
-        <div class="cta-overlay"></div>
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title">Realizziamo insieme il tuo prossimo progetto.</h2>
-                <a href="#contact" class="btn btn-light">
-                    Contattaci
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- ========== CONTACTS SECTION ========== -->
     <section id="contact" class="contact">
         <div class="container">
@@ -618,22 +588,41 @@
             <div class="contact-top">
                 <div class="contact-info reveal">
                     <div class="contact-card">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
                         <h4>Indirizzo</h4>
                         <p>Via Paolo Paternostro, 94<br>90141 Palermo (PA)<br>Italia</p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
                         <h4>Telefono</h4>
                         <p><a href="tel:+390916870221">+39 091 6870221</a></p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22 6 12 13 2 6"></polyline>
+                            </svg>
+                        </div>
                         <h4>Email</h4>
                         <p><a href="mailto:info@iorbaldo.it">info@iorbaldo.it</a></p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon">🕐</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
                         <h4>Orari</h4>
                         <p>Lun / Ven - 8.30 / 18.30</p>
                     </div>
