@@ -59,24 +59,25 @@
     <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" aria-hidden="true"></div>
 
     <!-- ========== HERO SECTION ========== -->
-    <section id="home" class="hero" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=85');">
+    <section id="home" class="hero">
+        <div class="hero-slider" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('fotohero/BIZZOTTO.png');"></div>
+            <div class="hero-slide" style="background-image: url('fotohero/%20NODO%20ITALIA.png');"></div>
+            <div class="hero-slide" style="background-image: url('fotohero/INKIOSTRO%20BIANCO.png');"></div>
+        </div>
         <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <p class="hero-eyebrow">IORBALDO 1934</p>
-                <h1 class="hero-title">
-                    Agenzia di rappresentanza nel settore dell'arredamento
-                </h1>
-                <p class="hero-description">
-                    Da oltre vent'anni affianchiamo aziende e professionisti offrendo soluzioni d'arredo Indoor, Outdoor, Contract e Ho.Re.Ca.
-                </p>
-                <a href="#about" class="btn btn-primary">
-                    Scopri di più
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
+        <div class="hero-brand-wrap" aria-label="Brand correlato">
+            <div class="hero-brand active">
+                <img src="fotohero/bizzottologo.png" alt="Bizzotto" loading="eager">
+                <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
+            </div>
+            <div class="hero-brand">
+                <img src="fotohero/nodoitalialogo.png" alt="Nodo Italia" loading="eager">
+                <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
+            </div>
+            <div class="hero-brand">
+                <img src="fotohero/inchiostro.png" alt="Inkiostro Bianco" loading="eager">
+                <a href="#brands" class="btn btn-light hero-brand-btn">Scopri di più</a>
             </div>
         </div>
         <!-- Scroll Indicator -->

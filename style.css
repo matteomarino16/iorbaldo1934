@@ -591,11 +591,31 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: #0b1a2e;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #0b1a2e;
-    overflow: hidden;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.9s ease, transform 5.2s linear;
+    will-change: opacity, transform;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1.06);
 }
 
 .hero-overlay {
@@ -616,6 +636,43 @@ section {
     margin: 0 auto;
     padding: 120px 0 60px;
     animation: heroFadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-brand-wrap {
+    position: absolute;
+    right: 36px;
+    bottom: 36px;
+    z-index: 3;
+    pointer-events: auto;
+}
+
+.hero-brand {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 14px 14px 12px;
+    border-radius: 18px;
+    background-color: rgba(18, 24, 42, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+}
+
+.hero-brand.active {
+    display: flex;
+}
+
+.hero-brand img {
+    height: 34px;
+    width: auto;
+    opacity: 0.92;
+    filter: brightness(0) invert(1);
+}
+
+.hero-brand-btn {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
 }
 
 /* Hero Eyebrow */
@@ -682,7 +739,7 @@ section {
 /* Scroll Down Indicator - adattato a sfondo scuro */
 .scroll-down {
     position: absolute;
-    bottom: 40px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -742,7 +799,7 @@ section {
 
 /* Responsive Hero */
 @media (max-width: 1024px) {
-    .hero {
+    .hero-slide {
         background-position: 60% center;
     }
     .hero-content {
@@ -763,6 +820,8 @@ section {
     .hero {
         min-height: 100vh;
         padding: 0;
+    }
+    .hero-slide {
         background-position: 70% center;
     }
     .hero-overlay {
@@ -792,13 +851,29 @@ section {
         padding: 13px 30px;
         font-size: 0.88rem;
     }
+    .hero-brand-wrap {
+        right: 14px;
+        bottom: 14px;
+    }
+    .hero-brand {
+        padding: 12px 12px 10px;
+        border-radius: 16px;
+        gap: 10px;
+    }
+    .hero-brand img {
+        height: 28px;
+    }
+    .hero-brand-btn {
+        padding: 9px 14px;
+        font-size: 0.78rem;
+    }
     .scroll-down {
         display: none;
     }
 }
 
 @media (max-width: 520px) {
-    .hero {
+    .hero-slide {
         background-position: 75% center;
     }
     .hero-content {
@@ -822,6 +897,12 @@ section {
     .hero-content .btn {
         padding: 12px 26px;
         font-size: 0.82rem;
+    }
+    .hero-brand img {
+        height: 26px;
+    }
+    .hero-brand-btn {
+        padding: 9px 13px;
     }
 }
 

@@ -11,6 +11,7 @@
         initSmoothScroll();
         initScrollReveal();
         initCounters();
+        initHeroSlider();
         initHeroParallax();
         initContactForm();
         initActiveNav();
@@ -201,10 +202,62 @@
         observer.observe(numbersSection);
     }
 
+    function initHeroSlider() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+
+        const slides = hero.querySelectorAll('.hero-slide');
+        if (slides.length < 2) return;
+
+        const brands = hero.querySelectorAll('.hero-brand');
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === 0));
+            if (brands.length) {
+                brands.forEach((b, i) => b.classList.toggle('active', i === 0));
+            }
+            return;
+        }
+
+        let currentIndex = 0;
+        let timer = null;
+        const intervalMs = 5200;
+
+        const goTo = (index) => {
+            slides[currentIndex].classList.remove('active');
+            if (brands[currentIndex]) brands[currentIndex].classList.remove('active');
+            currentIndex = (index + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+            if (brands[currentIndex]) brands[currentIndex].classList.add('active');
+        };
+
+        const start = () => {
+            if (timer) return;
+            timer = setInterval(() => goTo(currentIndex + 1), intervalMs);
+        };
+
+        const stop = () => {
+            if (!timer) return;
+            clearInterval(timer);
+            timer = null;
+        };
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stop();
+            else start();
+        });
+
+        start();
+    }
+
     /* -------- HERO PARALLAX (Leggero) -------- */
     function initHeroParallax() {
         const hero = document.querySelector('.hero');
         if (!hero) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
 
         let ticking = false;
 
@@ -212,7 +265,8 @@
             const scrollY = window.scrollY;
             if (scrollY < window.innerHeight) {
                 const offset = scrollY * 0.35;
-                hero.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+                const target = hero.querySelector('.hero-slide.active') || hero;
+                target.style.backgroundPosition = `center calc(50% + ${offset}px)`;
             }
             ticking = false;
         };
