@@ -212,11 +212,42 @@
         const brands = hero.querySelectorAll('.hero-brand');
         const mqMobile = window.matchMedia('(max-width: 768px)');
 
-        const applyHeroImages = () => {
+        const preloadCache = new Map();
+
+        const preload = (src) => {
+            if (!src) return Promise.resolve();
+            if (preloadCache.has(src)) return preloadCache.get(src);
+
+            const img = new Image();
+            img.decoding = 'async';
+            img.src = src;
+
+            const promise = (typeof img.decode === 'function')
+                ? img.decode().catch(() => {})
+                : new Promise((resolve) => {
+                    img.onload = () => resolve();
+                    img.onerror = () => resolve();
+                });
+
+            preloadCache.set(src, promise);
+            return promise;
+        };
+
+        const getSlideSrc = (slide) => {
             const useMobile = mqMobile.matches;
+            return useMobile ? slide.getAttribute('data-mobile') : slide.getAttribute('data-desktop');
+        };
+
+        const applyHeroImages = () => {
             slides.forEach(slide => {
-                const src = useMobile ? slide.getAttribute('data-mobile') : slide.getAttribute('data-desktop');
-                if (src) slide.style.backgroundImage = `url('${src}')`;
+                const src = getSlideSrc(slide);
+                if (!src) return;
+                if (slide.dataset.currentSrc === src) return;
+
+                preload(src).finally(() => {
+                    slide.style.backgroundImage = `url("${src}")`;
+                    slide.dataset.currentSrc = src;
+                });
             });
         };
 
@@ -233,13 +264,32 @@
         let currentIndex = 0;
         let timer = null;
         const intervalMs = 5200;
+        let transitioning = false;
 
         const goTo = (index) => {
-            slides[currentIndex].classList.remove('active');
-            if (brands[currentIndex]) brands[currentIndex].classList.remove('active');
-            currentIndex = (index + slides.length) % slides.length;
-            slides[currentIndex].classList.add('active');
-            if (brands[currentIndex]) brands[currentIndex].classList.add('active');
+            if (transitioning) return;
+            transitioning = true;
+
+            const nextIndex = (index + slides.length) % slides.length;
+            const nextSlide = slides[nextIndex];
+            const nextSrc = getSlideSrc(nextSlide);
+
+            preload(nextSrc).finally(() => {
+                slides[currentIndex].classList.remove('active');
+                if (brands[currentIndex]) brands[currentIndex].classList.remove('active');
+
+                currentIndex = nextIndex;
+                slides[currentIndex].classList.add('active');
+                slides[currentIndex].style.backgroundPosition = 'center';
+                if (brands[currentIndex]) brands[currentIndex].classList.add('active');
+
+                const warmIndex = (currentIndex + 1) % slides.length;
+                preload(getSlideSrc(slides[warmIndex]));
+
+                setTimeout(() => {
+                    transitioning = false;
+                }, 980);
+            });
         };
 
         const start = () => {
@@ -259,6 +309,8 @@
         });
 
         applyHeroImages();
+        preload(getSlideSrc(slides[0]));
+        preload(getSlideSrc(slides[1]));
 
         let resizeTimer = null;
         window.addEventListener('resize', () => {
