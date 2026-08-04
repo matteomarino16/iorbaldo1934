@@ -2490,6 +2490,9 @@ section {
 }
 
 @media (max-width: 600px) {
+    .portfolio-download {
+        padding-top: 28px;
+    }
     .portfolio-download-card {
         flex-direction: column;
         align-items: flex-start;
