@@ -147,9 +147,9 @@ section {
 }
 
 .section-header {
-    text-align: center;
+    text-align: left;
     max-width: 800px;
-    margin: 0 auto 70px;
+    margin: 0 0 70px;
 }
 
 .section-title {
@@ -173,7 +173,7 @@ section {
 }
 
 .title-underline.center {
-    margin: 18px auto 0;
+    margin: 18px 0 0;
 }
 
 .section-subtitle {
@@ -1476,6 +1476,44 @@ section {
     line-height: 1.3;
 }
 
+.brands-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    align-items: center;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(36, 50, 86, 0.12);
+    background-color: rgba(36, 50, 86, 0.02);
+    transition: border-color var(--transition-base), background-color var(--transition-base);
+    min-height: 76px;
+}
+
+.brand-logo img {
+    width: auto;
+    max-width: 100%;
+    max-height: 34px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.88;
+    transition: filter var(--transition-base), opacity var(--transition-base), transform var(--transition-fast);
+}
+
+.brands-group:hover .brand-logo img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.brand-logo:hover img {
+    transform: scale(1.02);
+}
+
 .brands-chips {
     display: flex;
     flex-wrap: wrap;
@@ -1577,6 +1615,18 @@ section {
         font-size: 0.76rem;
         margin-bottom: 14px;
     }
+    .brands-logos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .brand-logo {
+        padding: 14px 14px;
+        min-height: 70px;
+        border-radius: 12px;
+    }
+    .brand-logo img {
+        max-height: 30px;
+    }
     .brands-chips {
         gap: 8px;
     }
@@ -1597,6 +1647,17 @@ section {
 @media (max-width: 520px) {
     .brands-group {
         padding: 18px 16px 16px;
+    }
+    .brands-logos {
+        gap: 9px;
+    }
+    .brand-logo {
+        padding: 12px 10px;
+        min-height: 62px;
+        border-radius: 10px;
+    }
+    .brand-logo img {
+        max-height: 28px;
     }
     .brand-chip {
         font-size: 0.8rem;
