@@ -43,7 +43,7 @@
     --font-heading: 'Neue Haas Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     
     /* Spacing */
-    --section-padding: 120px;
+    --section-padding: 100px;
     --container-width: 1400px;
     --radius-sm: 8px;
     --radius-md: 16px;
@@ -115,12 +115,18 @@ button {
 }
 
 @media (max-width: 1024px) {
+    :root {
+        --section-padding: 100px;
+    }
     .container {
         padding: 0 40px;
     }
 }
 
 @media (max-width: 768px) {
+    :root {
+        --section-padding: 80px;
+    }
     .container {
         padding: 0 16px;
     }
@@ -133,6 +139,9 @@ button {
 }
 
 @media (max-width: 520px) {
+    :root {
+        --section-padding: 64px;
+    }
     html {
         font-size: 13.5px;
     }
@@ -149,7 +158,7 @@ section {
 .section-header {
     text-align: left;
     max-width: 800px;
-    margin: 0 0 70px;
+    margin: 0 0 56px;
 }
 
 .section-title {
@@ -192,7 +201,7 @@ section {
         margin-top: 14px;
     }
     .section-header {
-        margin-bottom: 48px;
+        margin-bottom: 44px;
     }
     .title-underline {
         width: 54px;
@@ -212,7 +221,7 @@ section {
         font-size: 0.85rem;
     }
     .section-header {
-        margin-bottom: 36px;
+        margin-bottom: 32px;
     }
 }
 
@@ -988,7 +997,7 @@ section {
 }
 
 .about-image::before {
-    content: '';
+    content: none;
     position: absolute;
     top: -18px;
     left: -18px;
@@ -1000,7 +1009,7 @@ section {
 }
 
 .about-image::after {
-    content: '';
+    content: none;
     position: absolute;
     bottom: -18px;
     right: -18px;
@@ -1344,7 +1353,7 @@ section {
 
 /* --- NUMBERS SECTION --- */
 .numbers {
-    padding: 100px 0;
+    padding: var(--section-padding) 0;
     background-color: var(--primary-blue);
     background-image: 
         radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
@@ -1415,13 +1424,13 @@ section {
         display: none;
     }
     .numbers {
-        padding: 80px 0;
+        padding: var(--section-padding) 0;
     }
 }
 
 @media (max-width: 600px) {
     .numbers {
-        padding: 60px 0;
+        padding: var(--section-padding) 0;
     }
     .numbers-grid {
         gap: 40px 20px;
@@ -1676,7 +1685,7 @@ section {
 
 /* --- CTA SECTION --- */
 .cta-section {
-    padding: 140px 0;
+    padding: var(--section-padding) 0;
     position: relative;
     background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&q=80');
     background-size: cover;
@@ -1710,7 +1719,7 @@ section {
 
 @media (max-width: 768px) {
     .cta-section {
-        padding: 80px 0;
+        padding: var(--section-padding) 0;
         background-attachment: scroll;
     }
     .cta-title {
@@ -1725,7 +1734,7 @@ section {
 
 @media (max-width: 520px) {
     .cta-section {
-        padding: 64px 0;
+        padding: var(--section-padding) 0;
     }
     .cta-title {
         font-size: 1.3rem;
@@ -2355,6 +2364,139 @@ section {
     color: var(--primary-blue-dark);
 }
 
+.project-page {
+    background-color: var(--white);
+}
+
+.project-detail {
+    padding-top: 90px;
+}
+
+.project-hero {
+    position: relative;
+    overflow: hidden;
+    background-color: #0b1a2e;
+}
+
+.project-hero-media {
+    position: relative;
+    height: min(70vh, 620px);
+}
+
+.project-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-hero-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 20, 38, 0.18) 0%, rgba(36, 50, 86, 0.82) 100%);
+}
+
+.project-hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 54px 0;
+    z-index: 2;
+}
+
+.project-hero-inner {
+    max-width: 880px;
+}
+
+.project-kicker {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 12px;
+}
+
+.project-h1 {
+    color: var(--white);
+    font-size: 3rem;
+    line-height: 1.05;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.project-lead {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 760px;
+}
+
+.project-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.project-content {
+    padding: 80px 0 110px;
+}
+
+.project-content-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: 54px;
+    align-items: start;
+}
+
+.project-h2 {
+    font-size: 1.35rem;
+    color: var(--primary-blue);
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.project-main p {
+    color: var(--gray-text);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.project-spec {
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(36, 50, 86, 0.12);
+    background: rgba(36, 50, 86, 0.03);
+    padding: 18px 18px;
+}
+
+.project-spec-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(36, 50, 86, 0.12);
+}
+
+.project-spec-row:last-child {
+    border-bottom: 0;
+}
+
+.project-spec-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(36, 50, 86, 0.7);
+    font-weight: 700;
+}
+
+.project-spec-value {
+    font-size: 0.92rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
 /* Responsive sezione Progetti */
 @media (max-width: 1024px) {
     .projects-grid {
@@ -2376,6 +2518,31 @@ section {
     .project-title {
         font-size: 1.18rem;
         margin-top: 0;
+    }
+
+    .project-h1 {
+        font-size: 2.05rem;
+    }
+
+    .project-hero-media {
+        height: min(62vh, 540px);
+    }
+
+    .project-hero-content {
+        padding: 44px 0;
+    }
+
+    .project-content {
+        padding: 54px 0 90px;
+    }
+
+    .project-content-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .project-main p {
+        font-size: 0.96rem;
     }
     .project-desc {
         font-size: 0.85rem;
@@ -2427,7 +2594,7 @@ section {
 
 /* --- PORTFOLIO DOWNLOAD SECTION --- */
 .portfolio-download {
-    padding: 0 0 var(--section-padding);
+    padding: var(--section-padding) 0;
     background-color: var(--white);
 }
 
@@ -2490,9 +2657,6 @@ section {
 }
 
 @media (max-width: 600px) {
-    .portfolio-download {
-        padding-top: 28px;
-    }
     .portfolio-download-card {
         flex-direction: column;
         align-items: flex-start;
@@ -2506,7 +2670,7 @@ section {
 
 /* --- SOCIAL BAR SECTION (sopra Brand) --- */
 .social-bar {
-    padding: 80px 0;
+    padding: 56px 0;
     background-color: var(--primary-blue);
     position: relative;
 }
@@ -2526,8 +2690,8 @@ section {
 }
 
 .social-bar-link {
-    width: 74px;
-    height: 74px;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2541,8 +2705,8 @@ section {
 }
 
 .social-bar-link svg {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     transition: all var(--transition-base);
 }
 
@@ -2615,18 +2779,18 @@ section {
 
 @media (max-width: 768px) {
     .social-bar {
-        padding: 60px 0;
+        padding: 44px 0;
     }
     .social-bar-inner {
         gap: 18px;
     }
     .social-bar-link {
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
     }
     .social-bar-link svg {
-        width: 26px;
-        height: 26px;
+        width: 24px;
+        height: 24px;
     }
     .social-bar-img {
         width: 40px;
@@ -2637,19 +2801,19 @@ section {
 
 @media (max-width: 600px) {
     .social-bar {
-        padding: 50px 0;
+        padding: 36px 0;
     }
     .social-bar-inner {
         gap: 14px;
     }
     .social-bar-link {
-        width: 54px;
-        height: 54px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
     }
     .social-bar-link svg {
-        width: 22px;
-        height: 22px;
+        width: 21px;
+        height: 21px;
     }
     .social-bar-img {
         width: 34px;
@@ -2721,7 +2885,7 @@ section {
 
 @media (max-width: 430px) {
     :root {
-        --section-padding: 72px;
+        --section-padding: 56px;
     }
 
     html {
