@@ -377,34 +377,40 @@
                 return;
             }
 
-            // Fake submit
             submitBtn.disabled = true;
             submitBtn.innerHTML = `
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
                     <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
                 </svg>
-                Invio...
+                Apertura mail...
             `;
 
+            const name = (form.querySelector('#name')?.value || '').trim();
+            const surname = (form.querySelector('#surname')?.value || '').trim();
+            const email = (form.querySelector('#email')?.value || '').trim();
+            const phone = (form.querySelector('#phone')?.value || '').trim();
+            const message = (form.querySelector('#message')?.value || '').trim();
+
+            const to = 'info@iorbaldo.it';
+            const subject = `Richiesta dal sito - ${name} ${surname}`.trim();
+            const body = [
+                `Nome: ${name}`,
+                `Cognome: ${surname}`,
+                `Email: ${email}`,
+                `Telefono: ${phone || '-'}`,
+                '',
+                'Messaggio:',
+                message
+            ].join('\n');
+
+            const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+
             setTimeout(() => {
-                submitBtn.innerHTML = `
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    Inviato!
-                `;
-                submitBtn.style.backgroundColor = '#27ae60';
-
-                // Show success message
-                showToast('Messaggio inviato con successo! Ti contatteremo a breve.');
-
-                setTimeout(() => {
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.backgroundColor = '';
-                }, 3000);
-            }, 1500);
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 800);
         });
     }
 
