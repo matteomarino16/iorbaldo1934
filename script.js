@@ -1,5 +1,5 @@
 /* =========================================
-   IORBALDO 1934 - JAVASCRIPT INTERACTIONS
+   IORBALDO - JAVASCRIPT INTERACTIONS
    ========================================= */
 
 (function () {
